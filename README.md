@@ -154,7 +154,7 @@ If the Gemini API key expires, update your API key (free version) in:
 # In RAG/config.py, find LLMConfig and update:
 @dataclass
 class LLMConfig:
-    model_name: str = "microsoft/DialoGPT-medium"
+    model_name: str = "your gemini model"
     api_key: str = "your_new_api_key_here"  # Update this line
     max_length: int = 512
     temperature: float = 0.7
