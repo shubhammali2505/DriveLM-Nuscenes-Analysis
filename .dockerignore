@@ -1,0 +1,97 @@
+# Python cache and build files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Docker
+.dockerignore
+Dockerfile*
+docker-compose*.yml
+
+# Documentation
+README.md
+*.md
+
+# Large data files (mounted as volumes)
+../data/
+data/
+*.zip
+*.tar.gz
+
+# Output directories (mounted as volumes) 
+output/
+results/
+visualizations/
+
+# Log files (mounted as volume)
+analysis.log
+*.log
+*.tmp
+temp/
+tmp/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Model files and caches
+*.pkl
+*.h5
+.faiss/
+vector_db/
+
+# Streamlit cache
+.streamlit/

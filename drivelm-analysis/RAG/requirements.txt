@@ -1,0 +1,37 @@
+# Core RAG Dependencies
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.4
+langchain>=0.1.0
+langchain-community>=0.0.10
+
+# Google Gemini Integration
+google-generativeai>=0.3.0
+
+# Data Processing
+numpy>=1.21.0
+pandas>=1.3.0
+pathlib
+
+# Text Processing and Embeddings
+torch>=1.9.0
+transformers>=4.21.0
+tokenizers>=0.13.0
+
+# Utilities
+typing-extensions>=4.0.0
+dataclasses
+pathlib
+
+# Logging and Progress
+logging
+tqdm>=4.62.0
+
+# JSON and File Handling
+json5>=0.9.6
+
+# Development and Testing (Optional)
+pytest>=6.0.0
+pytest-cov>=3.0.0
+
+# Performance Optimizations (Optional)
+# faiss-gpu>=1.7.4  # Uncomment for GPU acceleration instead of faiss-cpu

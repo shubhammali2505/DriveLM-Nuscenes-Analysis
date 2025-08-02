@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  drivelm-analysis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: drivelm-analysis-app
+    ports:
+      - "8501:8501"
+    volumes:
+      # Mount the sibling data directory (adjust path as needed)
+      - ../data:/app/data:ro
+      # Mount ALL output directories for persistence (based on your folder structure)
+      - ./output:/app/output
+      - ./results:/app/results
+      - ./visualizations:/app/visualizations
+      # Mount logs for debugging
+      - ./analysis.log:/app/analysis.log
+      # Mount any additional directories that might be created
+      - ./results/evaluation:/app/results/evaluation
+      - ./results/visualizations:/app/results/visualizations
+  
+    environment:
+      # Google Gemini API Key (set your actual key)
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-AIzaSyDzRM_Hqc0DIV-eg3MrOo_eUGc6MdceqDo}
+      # Data paths (pointing to mounted data directory)
+      - NUSCENES_PATH=/app/data/nusccens
+      - DRIVELM_PATH=/app/data/drivelm_data/train_sample.json
+      # Streamlit configuration
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 40s
+    
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '2.0'
+        reservations:
+          memory: 2G
+          cpus: '1.0'
+
+volumes:
+  drivelm_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ../data 
+      o: bind
